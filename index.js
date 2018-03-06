@@ -27,8 +27,8 @@ dispDiv.addEventListener("click", function(ev){
     dispDiv.appendChild(newImg);
     
     console.log(ev.pageX, ev.pageY);
-    newImg.style.left = ev.pageX + "px";
-    newImg.style.top = ev.pageY + "px";
+    newImg.style.left = (ev.pageX - newImg.clientWidth/2)+ "px";
+    newImg.style.top = (ev.pageY - stH/2)+ "px";
 });
 
 stInp.addEventListener("keyup", function(ev){
@@ -45,8 +45,8 @@ stInp.addEventListener("keyup", function(ev){
 });
 
 dispDiv.addEventListener("mousemove", function(ev){
-    stC.style.top = ev.pageY + "px";
-    stC.style.left = ev.pageX + "px";
+    stC.style.top = (ev.pageY - 25) + "px";
+    stC.style.left = (ev.pageX - stC.clientWidth/2) + "px";
 });
 
     
@@ -54,7 +54,7 @@ function changeImage(el) {
     imgSrc = el.src;
     stC.src = imgSrc;
 };        
-stickerHeight.addEventListener("change", function(){    
+stickerHeight.addEventListener("change", function(ev){    
     stH = this.value;
 	if (ev.keyCode == 13){
 		stH = this.value;
